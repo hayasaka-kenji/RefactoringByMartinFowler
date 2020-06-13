@@ -1,7 +1,7 @@
 const fs = require('fs');
 const invoice = JSON.parse(fs.readFileSync(__dirname + '/json/invoices.json', 'utf8'));
 const plays = JSON.parse(fs.readFileSync(__dirname + '/json/plays.json', 'utf8'));
-const createStatementData = require(__dirname + '/createStatement');
+import createStatementData from './createStatement';
 
 function statement(invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays));
