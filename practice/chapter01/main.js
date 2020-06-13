@@ -3,8 +3,15 @@ const invoice = JSON.parse(fs.readFileSync(__dirname + '/json/invoices.json', 'u
 const plays = JSON.parse(fs.readFileSync(__dirname + '/json/plays.json', 'utf8'));
 
 function statement(invoice, plays) {
-  let result = `Statement for ${invoice.customer}\n`;
-  for (let perf of invoice.performances) {
+  const statementData = {};
+  statementData.customer = invoice.customer;
+  statementData.performances = invoice.performances;
+  return renderPlainText(statementData, plays);
+}
+
+function renderPlainText(data, plays) {
+  let result = `Statement for ${data.customer}\n`;
+  for (let perf of data.performances) {
     result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
   result += `Amount owed is ${usd((totalAmount()))}\n`;
