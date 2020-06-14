@@ -55,38 +55,36 @@ class PerformanceCalculator {
   }
 
   get amount() {
-    let result = 0;
-    switch (this.play.type) {
-      case "tragedy":
-        result = 40000;
-        if (this.performances.audience > 30) {
-          result += 1000 * (this.performances.audience - 30);
-        }
-        break;
-      case "comedy":
-        result = 30000;
-        if (this.performances.audience > 20) {
-          result += 10000 + 500 * (this.performances.audience - 20);
-        }
-        result += 300 * this.performances.audience;
-        break;
-      default:
-        throw new Error(`unknown type: ${this.play.play.type}`);
-    }
-    return result;
+    throw new Error('サブクラスを利用してください。')
   }
 
+  // ほとんどの演劇は観客30人以上を想定とする。（comedyはオーバライド。）
   get volumeCredits() {
-    let result = 0;
-    result += Math.max(this.performances.audience - 30, 0);
-    if ("comedy" === this.play.type) result += Math.floor(this.performances.audience / 5);
-    return result;
+    return Math.max(this.performances.audience - 30, 0);
   }
 }
 
 class TragedyCalculator extends PerformanceCalculator {
-  
+  get amount() {
+    let result = 40000;
+    if (this.performances.audience > 30) {
+      result += 1000 * (this.performances.audience - 30);
+    }
+    return result;
+  }
 }
+
 class ComedyCalculator extends PerformanceCalculator {
-  
+  get amount() {
+    let result = 30000;
+    if (this.performances.audience > 20) {
+      result += 10000 + 500 * (this.performances.audience - 20);
+    }
+    result += 300 * this.performances.audience;
+    return result;
+  }
+
+  get volumeCredits() {
+    return super.volumeCredits + Math.floor(this.performances.audience / 5);
+  }
 }
