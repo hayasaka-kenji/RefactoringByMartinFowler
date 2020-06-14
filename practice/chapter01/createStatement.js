@@ -7,7 +7,7 @@ export default function createStatementData(invoice, plays) {
   return result;
 
   function enrichPerformance(aPerformance) {
-    const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+    const calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
     const result = Object.assign({}, aPerformance);
     result.play = calculator.play;
     result.amount = calculator.amount;
@@ -37,6 +37,16 @@ export default function createStatementData(invoice, plays) {
       .reduce((total, p) => total + p.volumeCredits, 0);
   }
 };
+
+function createPerformanceCalculator (aPerformance, aPlay) {
+  switch(aPlay.type) {
+    case "tragedy": return new TragedyCalculator(aPerformance, aPlay);
+    case "comedy": return new ComedyCalculator(aPerformance, aPlay);
+  }
+  dafault: {
+    throw new Error(`登録されていない演劇の種類: ${aPlay.type}`);
+  }
+}
 
 class PerformanceCalculator {
   constructor(aPerformance, aPlay) {
@@ -72,4 +82,11 @@ class PerformanceCalculator {
     if ("comedy" === this.play.type) result += Math.floor(this.performances.audience / 5);
     return result;
   }
+}
+
+class TragedyCalculator extends PerformanceCalculator {
+  
+}
+class ComedyCalculator extends PerformanceCalculator {
+  
 }
