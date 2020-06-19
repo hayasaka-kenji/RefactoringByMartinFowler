@@ -1,6 +1,9 @@
+export { statement }
+export { htmlStatement }
+
 const fs = require('fs');
-const invoice = JSON.parse(fs.readFileSync(__dirname + '/json/invoices.json', 'utf8'));
-const plays = JSON.parse(fs.readFileSync(__dirname + '/json/plays.json', 'utf8'));
+const invoicesJson = JSON.parse(fs.readFileSync(__dirname + '/json/invoices.json', 'utf8'));
+const playsJson = JSON.parse(fs.readFileSync(__dirname + '/json/plays.json', 'utf8'));
 import createStatementData from './createStatement';
 
 function statement(invoice, plays) {
@@ -21,7 +24,7 @@ function htmlStatement(invoice, plays) {
   return renderHtml(createStatementData(invoice, plays));
 }
 
-function renderHtml (data) {
+function renderHtml(data) {
   let result = `<h1>Statement for ${data.customer}</h1>\n`;
   result += '<table>\n';
   result += '<tr><th>play</th><th>seats</th><th>cost</th></tr>';
@@ -44,6 +47,3 @@ function usd(aNumber) {
     }
   ).format(aNumber / 100);
 }
-
-console.log((statement(invoice, plays)));
-// console.log((htmlStatement(invoice, plays)));
