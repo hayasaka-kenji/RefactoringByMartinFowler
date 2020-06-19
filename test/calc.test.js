@@ -1,6 +1,6 @@
 'use strict';
 import { assert } from "chai";
-import { add, square, cube } from "../src/calc";
+import { add } from "../src/calc";
 
 describe('calc', function () {
   describe('add', function () {

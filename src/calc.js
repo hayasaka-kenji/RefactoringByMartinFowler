@@ -1,7 +1,7 @@
 'use strict';
 
-function add (a,b) {
+function add(a, b) {
   return a + b;
 };
 
-export {add};
+export { add };
