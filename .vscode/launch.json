@@ -9,7 +9,7 @@
       "type": "node",
       "request": "launch",
       "name": "chapter1/statement.js",
-      "program": "${workspaceFolder}/practice/chapter01/statement.js",
+      "program": "${workspaceFolder}/src/chapter01/statement.js",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
       "skipFiles": [
         "<node_internals>/**"
