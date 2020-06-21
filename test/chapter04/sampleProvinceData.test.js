@@ -1,6 +1,7 @@
 // test
 const assert = require('assert');
-import { sampleProvinceData, Producer, Province } from '../../src/chapter04/sampleProvinceData';
+import { Province } from '../../src/chapter04/province';
+import { sampleProvinceData } from '../../src/chapter04/sampleProvinceData';
 
 describe('main', function () {
   it('shortfall', function () {
