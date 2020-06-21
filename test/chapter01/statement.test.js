@@ -4,7 +4,7 @@ import fs from 'fs';
 const invoicesJson = JSON.parse(fs.readFileSync(__dirname + '/json/invoices.json', 'utf8'));
 const playsJson = JSON.parse(fs.readFileSync(__dirname + '/json/plays.json', 'utf8'));
 
-describe('statement', () => {
+describe('chapter01.statement', () => {
   it('statement', () => {
     let result = 'Statement for BigCo\n' +
     '  Hamlet: $650.00 (55 seats)\n' +
