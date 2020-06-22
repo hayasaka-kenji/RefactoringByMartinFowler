@@ -2,8 +2,8 @@
 import { assert } from "chai";
 import { add } from "../src/sample";
 
-describe('Sample', function () {
-  it('add', function () {
+describe('Sample', () => {
+  it('add', () => {
     assert.equal(add(1, 2), 3);
   });
 });
