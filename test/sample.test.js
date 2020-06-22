@@ -6,4 +6,4 @@ describe('sample', function () {
   it('add', function () {
     assert.equal(add(1, 2), 3);
   });
-}); 
+});
