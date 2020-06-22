@@ -13,7 +13,7 @@ describe('chapter01.statement', () => {
     'Amount owed is $1,730.00\n' +
     'You earned 47 credits\n';
 
-      expect(statement(invoicesJson, playsJson)).to.equal(result);
+    expect(statement(invoicesJson, playsJson)).to.equal(result);
   });
 
   it('htmlStatement', () => {

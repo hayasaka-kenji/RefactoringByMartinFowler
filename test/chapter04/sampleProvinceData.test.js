@@ -1,11 +1,15 @@
-// test
-const assert = require('assert');
+import { expect } from 'chai';
 import { Province } from '../../src/chapter04/province';
 import { sampleProvinceData } from '../../src/chapter04/sampleProvinceData';
 
-describe('capter04.province', function () {
+describe('chapter04.province', function () {
   it('shortfall', function () {
     const asia = new Province(sampleProvinceData());
-    assert.equal(asia.shortfall, 5);
+    expect(asia.shortfall).equal(5);
+  });
+
+  it('profit', function () {
+    const asia = new Province(sampleProvinceData());
+    expect(asia.profit).equal(230);
   });
 });
