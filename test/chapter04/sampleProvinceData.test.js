@@ -2,48 +2,48 @@ import { expect } from 'chai';
 import { Province } from '../../src/chapter04/province';
 import { sampleProvinceData } from '../../src/chapter04/sampleProvinceData';
 
-describe('chapter04: province', function () {
+describe('chapter04: province', () => {
   let asia;
-  beforeEach(function () {
+  beforeEach(() => {
     asia = new Province(sampleProvinceData());
   });
 
-  it('shortfall', function () {
+  it('shortfall', () => {
     expect(asia.shortfall).equal(5);
   });
 
-  it('profit', function () {
+  it('profit', () => {
     expect(asia.profit).equal(230);
   });
 
-  it('change a production', function () {
+  it('change a production', () => {
     asia.producers[0].production = 20;
     expect(asia.shortfall).equal(-6);
     expect(asia.profit).equal(292);
   });
 
-  it('zero demand', function() {
+  it('zero demand', () => {
     asia.demand = 0;
     expect(asia.shortfall).equal(-25);
     expect(asia.profit).equal(0);
   });
 
-  it('negative demand', function() {
+  it('negative demand', () => {
     asia.demand = 0;
     expect(asia.shortfall).equal(-25);
     expect(asia.profit).equal(0);
   });
 
-  it('empty string demand', function() {
+  it('empty string demand', () => {
     asia.demand = '';
     expect(asia.shortfall).NaN;
     expect(asia.profit).NaN;
   });
 });
 
-describe('chapter04: no producers', function() {
+describe('chapter04: no producers', () => {
   let noProducers;
-  beforeEach(function() {
+  beforeEach(() => {
     const data = {
       name: 'No producers',
       producers: [],
@@ -53,18 +53,18 @@ describe('chapter04: no producers', function() {
     noProducers = new Province(data);
   });
 
-  it('shortfall', function () {
+  it('shortfall', () => {
     expect(noProducers.shortfall).equal(30);
   });
 
-  it('profit', function () {
+  it('profit', () => {
     expect(noProducers.profit).equal(0);
   });
 });
 
 // // TypeError: doc.producers.forEach is not a function
-// describe('chapter04: string for producers', function() {
-//   it('', function() {
+// describe('chapter04: string for producers',  () => {
+//   it('',  () => {
 //     const data = {
 //       name: 'String producers',
 //       producers: '',
