@@ -16,7 +16,8 @@
     "mocha": "^6.0.2"
   },
   "scripts": {
-    "test": "mocha --require @babel/register test/**/*.test.js"
+    "test": "mocha --require @babel/register",
+    "test-all": "mocha --require @babel/register test/**/*.test.js"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 'use strict';
 import { assert } from "chai";
-import { add } from "../src/calc";
+import { add } from "../src/sample";
 
-describe('sample', function () {
+describe('Sample', function () {
   it('add', function () {
     assert.equal(add(1, 2), 3);
   });
