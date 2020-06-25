@@ -1,11 +1,46 @@
 export { printOwing };
 
-function printOwing(invoice) {
-  // printBanner();
-  // let outstanding = calculateOutstanding();
+let invoice = {
+  "orders": [
+    { "amount": 1 }
+  ],
+  "customer": "Martin"
+};
 
-  // 明細の印字(print details)
-  // console.log(`name: ${invoice.customer}`);
-  // console.log(`amount: ${outstanding}`);
-  return `name: ${invoice.customer}`
+let Clock = {
+  today: {
+    getFullYear() {
+      return 2020;
+    },
+
+    getMonth() {
+      return 4;
+    },
+
+    getDate() {
+      return 25;
+    }
+  }
+};
+
+function printOwing(invoice) {
+  let outstanding = 0;
+
+  console.log("***********************");
+  console.log("**** Customer Owes ****");
+  console.log("***********************");
+
+  // calculate outstanding
+  for (const o of invoice.orders) {
+    outstanding += o.amount;
+  }
+
+  // record due date
+  const today = Clock.today;
+  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+
+  //print details
+  console.log(`name: ${invoice.customer}`);
+  console.log(`amount: ${outstanding}`);
+  console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
 }
