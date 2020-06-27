@@ -1,13 +1,13 @@
 import { expect } from 'chai';
-import { getRating } from '../../src/chapter06/inlineFunction';
+import { rating } from '../../src/chapter06/inlineFunction';
 
-describe('chapter06: getRating', () => {
+describe('chapter06: rating', () => {
   it('If rate is 5 or less, set to 1', () => {
     const driver = {
       numberOfLateDeliveries: 5
     };
 
-    expect(getRating(driver)).to.equal(1);
+    expect(rating(driver)).to.equal(1);
   });
 
   it('If the rate exceeds 5, it becomes 2', () => {
@@ -15,6 +15,6 @@ describe('chapter06: getRating', () => {
       numberOfLateDeliveries: 6
     };
 
-    expect(getRating(driver)).to.equal(2);
+    expect(rating(driver)).to.equal(2);
   });
 });
