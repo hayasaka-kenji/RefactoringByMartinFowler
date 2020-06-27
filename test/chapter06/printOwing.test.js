@@ -8,22 +8,6 @@ let invoice = {
   "customer": "Martin"
 };
 
-let Clock = {
-  today: {
-    getFullYear() {
-      return 2020;
-    },
-
-    getMonth() {
-      return 4;
-    },
-
-    getDate() {
-      return 25;
-    }
-  }
-};
-
 describe('chapter06: printOwing', () => {
   it('printOwing', () => {
     const result = 
