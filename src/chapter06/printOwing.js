@@ -33,11 +33,14 @@ function printOwing(invoice) {
     outstanding += o.amount;
   }
 
-  // 締め日の記録
-  const today = Clock.today;
-  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+  recordDueDate(invoice);
 
   printDetails(invoice, outstanding);
+
+  function recordDueDate(invoice) {
+    const today = Clock.today;
+    invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+  }
 
   function printDetails(invoice, outstanding) {
     console.log(`name: ${invoice.customer}`);
