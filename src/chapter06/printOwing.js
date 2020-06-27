@@ -26,21 +26,28 @@ let Clock = {
 function printOwing(invoice) {
   let outstanding = 0;
 
-  console.log("***********************");
-  console.log("**** Customer Owes ****");
-  console.log("***********************");
+  printBanner();
 
-  // calculate outstanding
+  // 未払金の計算
   for (const o of invoice.orders) {
     outstanding += o.amount;
   }
 
-  // record due date
+  // 締め日の記録
   const today = Clock.today;
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 
-  //print details
-  console.log(`name: ${invoice.customer}`);
-  console.log(`amount: ${outstanding}`);
-  console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
+  printDetails();
+
+  function printDetails() {
+    console.log(`name: ${invoice.customer}`);
+    console.log(`amount: ${outstanding}`);
+    console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
+  }
+
+  function printBanner() {
+    console.log("***********************");
+    console.log("**** Customer Owes ****");
+    console.log("***********************");
+  }
 }
