@@ -24,18 +24,19 @@ let Clock = {
 };
 
 function printOwing(invoice) {
-  let outstanding = 0;
-
+  
   printBanner();
-
-  // 未払金の計算
-  for (const o of invoice.orders) {
-    outstanding += o.amount;
-  }
-
+  const outstanding = calcukateOutstanding(invoice);
   recordDueDate(invoice);
-
   printDetails(invoice, outstanding);
+
+  function calcukateOutstanding(invoice) {
+    let result = 0;
+    for (const o of invoice.orders) {
+      result += o.amount;
+    }
+    return result;
+  }
 
   function recordDueDate(invoice) {
     const today = Clock.today;
