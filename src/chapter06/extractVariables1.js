@@ -7,8 +7,10 @@ export class Order {
   get itemPrices() { return this._data.itemPrices; }
 
   get price() {
-    return this.quantity * this.itemPrices -
-      Math.max(0, this.quantity - 500) * this.itemPrices * 0.05 +
-      Math.min(this.quantity) * this.itemPrices * 0.01;
+    return this.basePrice - this.quantityDiscount +　this.shipping;
   }
+
+  get basePrice() {return this.quantity * this.itemPrices;}
+  get quantityDiscount() {return Math.max(0, this.quantity - 500) * this.itemPrices * 0.05;}
+  get shipping() {return Math.min(this.quantity) * this.itemPrices * 0.01;}
 }
