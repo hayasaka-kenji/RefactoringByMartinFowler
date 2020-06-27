@@ -7,7 +7,7 @@ export class Order {
   get itemPrices() { return this._data.itemPrices; }
 
   get price() {
-    return this.basePrice - this.quantityDiscount +　this.shipping;
+    return this.basePrice - this.quantityDiscount + this.shipping;
   }
 
   get basePrice() {return this.quantity * this.itemPrices;}
