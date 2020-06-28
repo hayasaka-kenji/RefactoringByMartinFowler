@@ -1,10 +1,10 @@
 import { expect } from "chai";
-import { getDefaultOwner, setDefaultOwner } from "../../src/chapter06/encapsulateVariable2";
+import { defaultOwner, setDefaultOwner } from "../../src/chapter06/encapsulateVariable2";
 
 describe('defaultOwner', () => {
   it('Whether Martin Folwer', () => {
     let spaceship = {};
-    spaceship.owner = getDefaultOwner();
+    spaceship.owner = defaultOwner();
 
     expect(spaceship.owner.firstName).equal('Martin');
     expect(spaceship.owner.lastName).equal('Fowler');
@@ -12,7 +12,7 @@ describe('defaultOwner', () => {
 
   it('Make a change', () => {
     setDefaultOwner({firstName: 'Rebecca', lastName: 'Persons'});
-    let user = getDefaultOwner();
+    let user = defaultOwner();
 
     expect(user.firstName).equal('Rebecca');
     expect(user.lastName).equal('Persons');
