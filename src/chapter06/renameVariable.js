@@ -1,9 +1,9 @@
 let result;
 let obj = { artivleTtitle: 'some' };
-let tpHd = 'untitled';
+let _title = 'untitled';
 
 result += `<h1>${title()}</h1>`;
 setTitle(obj['artivleTtitle']);
 
-function title() { return tpHd };
-function setTitle(arg) {tpHd = arg};
+function title() { return _title };
+function setTitle(arg) {_title = arg};
