@@ -1,4 +1,12 @@
-const organization = { name: 'Acme Gooseberries', country: 'GB' };
-const result = `<h1>${organization.name}</h1>`;
-console.log(result);
-organization.name = 'newName';
+class Organization {
+  constructor(data) {
+    this._data = data;
+  }
+}
+
+const organization = new Organization({ name: 'Acme Gooseberries', country: 'GB' });
+function getRawDataOfOrganization() { return organization._data };
+function getOrganization() { return organization };
+
+// console.log(getRawDataOfOrganization());
+// console.log(getOrganization());
