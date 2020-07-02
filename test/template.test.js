@@ -1,5 +1,5 @@
-import { expect } from "chai";
-import { add } from "..";
+import { expect } from 'chai';
+import { add } from '..';
 
 describe('Sample', () => {
   it('sub', () => {
