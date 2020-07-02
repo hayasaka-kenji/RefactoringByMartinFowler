@@ -10,5 +10,5 @@ class Organization {
   set country(aCounryCide) { this._country = aCounryCide; }
 }
 
-const organization = new Organization({ name: 'Acme Gooseberries', country: 'GB' });
-function getOrganization() { return organization };
+export const organization = new Organization({ name: 'Acme Gooseberries', country: 'GB' });
+export function getOrganization() { return organization };
