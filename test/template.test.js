@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { add } from '..';
+import { add } from '../src/chapter';
 
 describe('Sample', () => {
   it('sub', () => {
