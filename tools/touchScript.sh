@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # Usage:
-# sh tools/touchScript.sh chapter07/hogeHoge   
+# sh tools/touchScript.sh 08 hogeHoge
 
-touch src/$1.js
-cp test/template.test.js test/$1.test.js
-echo script: src/$1.js
-echo test:   test/$1.test.js
+SCRIPT_FILE="src/chapter$1/$2.js"
+TEST_FILE="test/chapter$1/$2.test.js"
+
+touch $SCRIPT_FILE
+cp test/template.test.js $TEST_FILE
+
+echo script: $SCRIPT_FILE
+echo test: $TEST_FILE
