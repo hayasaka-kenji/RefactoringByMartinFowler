@@ -11,7 +11,7 @@ export class Person {
   set name(arg) { this._name = arg; }
 
   get telephoneNumber() { 
-    return `(${this._officeAreaCode}) ${this._officeNumber}`;
+    return this._telephoneNumber.telephoneNumber;
   }
 
   get officeAreaCode() { 
@@ -37,4 +37,7 @@ class TelephoneNumber {
   set officeAreaCode(arg) { this._officeAreaCode = arg; }
   get officeNumber() { return this._officeNumber; }
   set officeNumber(arg) { this._officeNumber = arg; }
+  get telephoneNumber() { 
+    return `(${this._officeAreaCode}) ${this._officeNumber}`;
+  }
 }
