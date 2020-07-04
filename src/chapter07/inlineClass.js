@@ -25,7 +25,7 @@ export class Shipment {
 
   get trackingInformation() {return this._trackingInformation;}
 
-  set trackingInformation(aTrackingInformation) {
-    this._trackingInformation = aTrackingInformation;
+  set shippingCompany(aShippingCompany) {
+    this._trackingInformation.shippingCompany = aShippingCompany;
   }
 }

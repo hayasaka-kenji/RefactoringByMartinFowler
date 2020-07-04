@@ -15,7 +15,7 @@ describe('Shipment', () => {
     const aShipment = new Shipment(new TrackingInformation('ART', '0120'));
     expect(aShipment.trackingInfo).to.eql('ART: 0120');
 
-    aShipment.trackingInformation.shippingCompany = 'SAKAI';
+    aShipment.shippingCompany = 'SAKAI';
     expect(aShipment.trackingInfo).to.eql('SAKAI: 0120');
   });
 });
