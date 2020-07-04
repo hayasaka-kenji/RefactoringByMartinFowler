@@ -5,12 +5,16 @@ export class Order {
   }
 
   get price() {
-    let discountFactor = 0.98;
-    if (this.basePrice > 1000) discountFactor -= 0.03;
-    return this.basePrice * discountFactor;
+    return this.basePrice * this.discountFactor;
   }
 
   get basePrice() {
     return this._quantitiy * this._item.price;
+  }
+
+  get discountFactor() {
+    let result = 0.98;
+    if (this.basePrice > 1000) result -= 0.03;
+    return result;
   }
 }
