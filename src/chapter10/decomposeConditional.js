@@ -10,13 +10,7 @@ const plan = {
 };
 
 export function seasonCheck(aDate) {
-  let charge;
-  if (summer(aDate))
-    charge = summerCharge()
-  else
-    charge = regulartCharge();
-
-  return charge;
+  return summer(aDate) ? summerCharge() : regulartCharge();
 }
 
 function summer(aDate) {
