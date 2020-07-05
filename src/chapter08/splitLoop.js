@@ -16,5 +16,5 @@ export function report(people) {
     return youngest;
   }
 
-  return `youngest: ${youngest()}, totalSalary: ${totalSalary()}`;
+  return `youngest age: ${youngest()}, total salary: ${totalSalary()}`;
 }

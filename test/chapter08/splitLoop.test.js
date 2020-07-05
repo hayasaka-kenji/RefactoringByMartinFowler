@@ -18,11 +18,11 @@ describe('report', () => {
           salary: 50
       }
     ];
-    expect(report(aPeople)).equal('youngest: 30, totalSalary: 180');
+    expect(report(aPeople)).equal('youngest age: 30, total salary: 180');
   });
 
   it('Test if it is empty data', () => {
     const aPeople = [];
-    expect(report(aPeople)).equal('youngest: Infinity, totalSalary: 0');
+    expect(report(aPeople)).equal('youngest age: Infinity, total salary: 0');
   });
 });
