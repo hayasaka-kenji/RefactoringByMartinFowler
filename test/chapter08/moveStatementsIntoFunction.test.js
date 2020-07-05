@@ -11,6 +11,11 @@ describe('renderPerson, photoDiv', () => {
     }
   };
 
+  it('test: render person', () => {
+    let expectedValue = '<p>Paul</p>\n\n<p>title: Mountain</p>\n<p>location: Fuji</p>\n<p>date: Sun Jul 05 2020</p>';
+    expect(renderPerson(aPerson)).equal(expectedValue);
+  });
+
   it('test: photo div', () => {
     let expectedValue = '<div>\n<p>title: Mountain</p>\n<p>location: Fuji</p>\n<p>date: Sun Jul 05 2020</p>\n</div>';
     expect(photoDiv(aPerson.photo)).equal(expectedValue);
