@@ -18,6 +18,7 @@ fi
 
 touch $SCRIPT_FILE
 cp test/template.test.js $TEST_FILE
+sed -i '' "s|aScript|$SCRIPT_FILE|g" $TEST_FILE
 
 echo script: $SCRIPT_FILE
 echo test: $TEST_FILE
