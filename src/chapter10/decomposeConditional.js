@@ -12,15 +12,23 @@ const plan = {
 export function seasonCheck(aDate) {
   let charge;
   if (summer(aDate))
-    charge = quantity * plan.summerRate;
+    charge = summerCharge()
   else
-    charge = quantity * plan.regularRate + plan.regularServiceCharge;
+    charge = regulartCharge();
 
   return charge;
 }
 
 function summer(aDate) {
   return !aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd);
+}
+
+function summerCharge() {
+  return quantity * plan.summerRate;
+}
+
+function regulartCharge() {
+  return quantity * plan.regularRate + plan.regularServiceCharge;
 }
 
 export class Season {
