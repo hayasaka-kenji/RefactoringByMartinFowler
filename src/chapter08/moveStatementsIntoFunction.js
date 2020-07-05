@@ -8,17 +8,23 @@ export function renderPerson(person) {
   return result.join('\n');
 }
 
-export function photoDiv(p) {
+export function photoDiv(aPhoto) {
   return [
     '<div>',
-    `<p>title: ${p.title}</p>`,
-    emitPhotoData(p),
+    zznew(aPhoto),
     '</div>',
   ].join('\n');
 }
 
 function renderPhoto(aPhoto) {
   return '';
+}
+
+function zznew(aPhoto) {
+  return [
+    `<p>title: ${aPhoto.title}</p>`
+    ,emitPhotoData(aPhoto)
+  ].join("\n");
 }
 
 function emitPhotoData(aPhoto) {
