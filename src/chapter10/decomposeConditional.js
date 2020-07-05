@@ -13,17 +13,11 @@ export function seasonCheck(aDate) {
   return summer(aDate) ? summerCharge() : regulartCharge();
 }
 
-function summer(aDate) {
-  return !aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd);
-}
-
-function summerCharge() {
-  return quantity * plan.summerRate;
-}
-
-function regulartCharge() {
-  return quantity * plan.regularRate + plan.regularServiceCharge;
-}
+const summer = aDate => 
+        !aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd);
+const summerCharge = () => quantity * plan.summerRate;
+const regulartCharge = () => 
+        quantity * plan.regularRate + plan.regularServiceCharge;
 
 export class Season {
   constructor(month) {
