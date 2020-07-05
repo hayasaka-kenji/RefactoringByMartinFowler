@@ -13,10 +13,10 @@ describe('Sample', () => {
   });
 
   it('Free plan with 0 days free', () => {
-    expect(new Account(new AccountType('Free'), 0).overdraftCharge).equal(0);
+    expect(new Account(new AccountType('Free'), 0).overdraftCharge()).equal(0);
   });
 
   it('Premium plan charges even if the number of days is 0', () => {
-    expect(new Account(new AccountType('Premium'), 0).overdraftCharge).equal(10);
+    expect(new Account(new AccountType('Premium'), 0).overdraftCharge()).equal(10);
   });
 });
