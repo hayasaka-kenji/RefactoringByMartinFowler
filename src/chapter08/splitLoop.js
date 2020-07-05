@@ -1,15 +1,20 @@
 // 給与totalSalaryと最年少youngestを求める
 export function report(people) {
-  let totalSalary = 0;
-  let youngest = people[0] ? people[0].age : Infinity;
-
-  for (const p of people) {
-    if (p.age < youngest) youngest = p.age;
+  function totalSalary() {
+    let totalSalary = 0;
+    for (const p of people) {
+      totalSalary += p.salary;
+    }
+    return totalSalary;
   }
 
-  for (const p of people) {
-    totalSalary += p.salary;
+  function youngest() {
+    let youngest = people[0] ? people[0].age : Infinity;
+    for (const p of people) {
+      if (p.age < youngest) youngest = p.age;
+    }
+    return youngest;
   }
 
-  return `youngest: ${youngest}, totalSalary: ${totalSalary}`;
+  return `youngest: ${youngest()}, totalSalary: ${totalSalary()}`;
 }
