@@ -13,6 +13,6 @@ describe('payAmount', () => {
     const employee = {
       isRetired: true
     }
-    expect(payAmount(employee)).to.eql({amount: 0, reasonCode: "RET"});
+    expect(payAmount(employee)).to.eql({ amount: 0, reasonCode: "RET" });
   });
 });
