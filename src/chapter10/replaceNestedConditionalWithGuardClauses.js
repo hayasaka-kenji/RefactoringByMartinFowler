@@ -3,7 +3,6 @@
 // isRetired 退職者
 
 export function payAmount(employee) {
-  let result;
   if (employee.isSeparated) return { amount: 0, reasonCode: "SEP" };
   if (employee.isRetired) return { amount: 0, reasonCode: "RET" };
   // logic to compute amount
@@ -11,6 +10,5 @@ export function payAmount(employee) {
   consectetur(adipiscing).elit();
   sed.do.eiusmod = tempor.incididunt.ut(labore) && dolore(magna.aliqua);
   ut.enim.ad(minim.veniam);
-  result = someFinalComputation();
-  return result;
+  return someFinalComputation();
 }
