@@ -1,14 +1,14 @@
 // 鳥がどれくらい早く飛べるか、どんな羽毛を持っているか。
 
-function plumages(birds) {
-  return new Map(birds.map(b => [b.name, plumage(b)]));
+export function plumages(birds) {
+  let map = birds.map(b => [b.name, plumage(b)]);
+  let map1 = new Map(map);
+  return map1;
 }
-
-function speeds(birds) {
+export function speeds(birds) {
   return new Map(birds.map(b => [b.name, airSpeedVelocity(b)]));
 }
-
-function plumage(bird) {
+export function plumage(bird) {
   switch (bird.type) {
     case 'EuropeanSwallow':
       return "average";
@@ -20,8 +20,7 @@ function plumage(bird) {
       return "unknown";
   }
 }
-
-function airSpeedVelocity(bird) {
+export function airSpeedVelocity(bird) {
   switch (bird.type) {
     case 'EuropeanSwallow':
       return 35;
@@ -33,5 +32,3 @@ function airSpeedVelocity(bird) {
       return null;
   }
 }
-
-export { plumage, airSpeedVelocity };
